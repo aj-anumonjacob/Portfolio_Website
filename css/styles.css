@@ -133,7 +133,7 @@ section{padding:7rem 0;position:relative}
 .head{max-width:640px;margin-bottom:3.5rem}
 .kicker{display:inline-flex;align-items:center;gap:.6rem;color:var(--a1);font-weight:700;font-size:.95rem;margin-bottom:1rem}
 .kicker::before{content:"";width:28px;height:2px;background:currentColor;border-radius:2px}
-h2{font:700 clamp(2rem,4.4vw,3.2rem)/1.08 var(--display);letter-spacing:-.035em;margin:0 0 1rem}
+h2{font:700 clamp(1.8rem,4.4vw,3.2rem)/1.18 var(--display);letter-spacing:-.035em;margin:0 0 1rem}
 .head p{color:var(--muted);margin:0;font-size:1.08rem}
 
 /* ---------- Stats ---------- */
@@ -188,8 +188,15 @@ h2{font:700 clamp(2rem,4.4vw,3.2rem)/1.08 var(--display);letter-spacing:-.035em;
 
 /* ---------- Experience ---------- */
 .exp{display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:start}
-@media (max-width:900px){.exp{grid-template-columns:1fr;gap:2rem}}
-.exp .head{position:sticky;top:120px;margin:0}
+@media (min-width:901px){
+  .exp .head{position:sticky;top:120px;margin:0}
+}
+@media (max-width:900px){
+  section{padding:4.5rem 0}
+  .head{margin-bottom:2.5rem}
+  .exp{grid-template-columns:1fr;gap:2.5rem}
+  .exp .head{position:relative;top:auto;margin:0;max-width:100%}
+}
 .tl{position:relative;padding:0 0 0 2.2rem}
 .tl ol{list-style:none;margin:0;padding:0}
 .tl::before,.tl .fill{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line);border-radius:2px}
@@ -198,15 +205,25 @@ h2{font:700 clamp(2rem,4.4vw,3.2rem)/1.08 var(--display);letter-spacing:-.035em;
 .tl li:last-child{padding-bottom:0}
 .tl li::before{content:"";position:absolute;left:calc(-2.2rem + 1px);top:.35rem;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--muted);transition:all .5s var(--ease);z-index:1}
 .tl li.lit::before{border-color:var(--a1);background:var(--a1);box-shadow:0 0 0 6px var(--glow)}
-.tl .when{font-size:.88rem;font-weight:700;color:var(--muted)}
-.tl .now{display:inline-block;margin-left:.5rem;font-size:.75rem;padding:.15rem .55rem;border-radius:999px;background:color-mix(in srgb,#22C55E 15%,transparent);color:#16A34A}
+.tl .when{font-size:.88rem;font-weight:700;color:var(--muted);display:flex;flex-wrap:wrap;align-items:center;gap:.4rem}
+.tl .now{display:inline-block;font-size:.75rem;padding:.15rem .55rem;border-radius:999px;background:color-mix(in srgb,#22C55E 15%,transparent);color:#16A34A}
 .tl h3{font:600 1.3rem/1.3 var(--display);margin:.3rem 0 .15rem;letter-spacing:-.015em}
 .tl .where{color:var(--a1);font-weight:600;margin:0 0 .6rem;font-size:.97rem}
-.tl p{color:var(--muted);margin:0;max-width:58ch}
+.tl p{color:var(--muted);margin:0;max-width:58ch;line-height:1.6}
 .edu{margin-top:2.5rem;display:grid;gap:1rem}
 .edu .spot{padding:1.4rem 1.6rem}
-.edu strong{font:600 1.05rem var(--display);display:block}
-.edu span{color:var(--muted);font-size:.93rem}
+.edu strong{font:600 1.05rem/1.35 var(--display);display:block;margin-bottom:.25rem}
+.edu span{color:var(--muted);font-size:.93rem;display:block;line-height:1.45}
+
+@media (max-width:640px){
+  .wrap{padding:0 1.15rem}
+  .tl{padding-left:1.6rem}
+  .tl::before,.tl .fill{left:5px}
+  .tl li::before{left:calc(-1.6rem + 1px);width:12px;height:12px;top:.45rem}
+  .tl h3{font-size:1.15rem;line-height:1.35}
+  .edu{margin-top:1.75rem;gap:.85rem}
+  .edu .spot{padding:1.1rem 1.25rem}
+}
 
 /* ---------- Process ---------- */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;counter-reset:s}
