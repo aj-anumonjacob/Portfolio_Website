@@ -164,8 +164,10 @@ h2{font:700 clamp(1.8rem,4.4vw,3.2rem)/1.18 var(--display);letter-spacing:-.035e
 .svc .more:hover svg{transform:translateX(4px)}
 
 /* ---------- Work ---------- */
-.work{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-@media (max-width:940px){.work{grid-template-columns:1fr}}
+.work{display:grid;grid-template-columns:repeat(6,1fr);gap:1.25rem}
+.work>.proj{grid-column:span 2}
+.work>.proj:nth-child(n+4){grid-column:span 3}
+@media (max-width:940px){.work{grid-template-columns:1fr}.work>.proj,.work>.proj:nth-child(n+4){grid-column:auto}}
 .proj{display:flex;flex-direction:column}
 .shot{height:210px;padding:1.4rem;background:linear-gradient(140deg,var(--g1),var(--g2));position:relative;overflow:hidden}
 .ui{position:absolute;left:1.4rem;right:1.4rem;top:1.6rem;bottom:-20px;border-radius:14px 14px 0 0;background:rgba(255,255,255,.93);box-shadow:0 20px 40px -10px rgba(0,0,0,.35);padding:1rem;transition:transform .7s var(--ease)}
